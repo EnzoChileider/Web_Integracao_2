@@ -1,10 +1,14 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Galery from "./components/Galery";
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Cart from "./pages/Cart";
+import Sobre from "./pages/Sobre";
+import Politica from "./pages/Politica";
 import Cookie from "js-cookie";
 import { GlobalContext } from "./GlobalContext/GlobalContext";
 import { useContext } from "react";
@@ -54,6 +58,8 @@ function App() {
       <div className="fixed w-full">
         <Navbar />
       </div>
+      <Galery />
+      
       <Routes>
         <Route path="" element={<Home />} />
         <Route path="cart" element={<Cart />} />
@@ -61,7 +67,10 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path="addnewproduct" element={<AddNewProduct />} />
         <Route path="productdetails/:productid" element={<ProductDetails />} />
+        <Route path="sobre" element={<Sobre />} />
+        <Route path="politica" element={<Politica />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

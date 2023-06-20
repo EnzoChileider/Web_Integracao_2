@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { GlobalContext } from "../GlobalContext/GlobalContext";
+import './detail.css';
 
 const ProductDetails = () => {
   const params = useParams();
@@ -15,7 +16,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     axios({
-      url: `http://localhost:5000/api/items/get_item/${productid}`,
+      url: `http://localhost:5000/items/get_item/${productid}`,
       method: "get",
     })
       .then((res) => {
@@ -51,7 +52,7 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="w-full h-100 mt-5 flex justify-center ">
+    <div className="main_card">
       <div className="w-[80%] mt-[90px] grid gap-4 grid-cols-2">
         <div>
           <img src={product.image} className="w-full" />

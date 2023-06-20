@@ -3,6 +3,9 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import './login_formulary.css';
+
+
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -76,17 +79,17 @@ const Login = () => {
       .catch((err) => {
         console.log(`Request error: ${err}`);
       });
-    //we will use axios to connect to the backend
+    // usando axios para conectar como o backend
   };
 
   return (
-    <div className="w-full flex justify-center items-center ">
+    <div className="w-full flex justify-center items-center" id="login_form">
       <form
-        className=" mt-40 bg-white p-4 shadow-md border rounded my-5 py-3 "
+        className=" mt-30 bg-white p-4 shadow-md border rounded my-5 py-3 "
         onSubmit={submitHandler}
       >
         <h2 className="text-center w-full p-3 text-gray-500 text-xl font-bold ">
-          Login Account
+          Faça o login
         </h2>
         <div className="mb-2">
           <label className="text-gray-500 mb-2 font-bold" htmlFor="username">

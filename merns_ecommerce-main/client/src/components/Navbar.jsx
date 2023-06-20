@@ -4,6 +4,10 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../GlobalContext/GlobalContext";
 import Cookie from "js-cookie";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaw } from "@fortawesome/free-solid-svg-icons";
+
+
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -21,9 +25,12 @@ const Navbar = () => {
 
   return (
     <div className="w-full h-25 bg-[#000300] flex justify-between items-center">
+      <Link to="/">
       <h1 className="text-white font-bold md:text-4xl sm:3xl text-xl p-3">
-        E-COMMERCE
+        E-PET
+        <FontAwesomeIcon icon={faPaw} />
       </h1>
+      </Link>
       <ul className="hidden md:flex p-3">
         <Link to="/">
           <li className="text-white font-bold p-2 hover:bg-[#2C2A2A] cursor-pointer">

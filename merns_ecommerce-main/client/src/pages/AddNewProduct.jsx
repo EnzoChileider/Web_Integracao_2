@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import './add_form.css'
+
 
 const AddNewProduct = () => {
   const [inputs, setinputs] = useState({
@@ -22,7 +24,7 @@ const AddNewProduct = () => {
     //console.log(inputs);
 
     axios({
-      url: "http://localhost:5000/api/items/add",
+      url: "http://localhost:5000/items/add",
       method: "post",
       data: {
         ...inputs,
@@ -61,7 +63,7 @@ const AddNewProduct = () => {
       });
   };
   return (
-    <div className="w-full absolute mt-[80px] flex justify-center items-center">
+    <div className="form">
       <form
         className="bg-white p-4 shadow-md border rounded my-5 py-3"
         onSubmit={submitHandler}
@@ -71,7 +73,7 @@ const AddNewProduct = () => {
         </h2>
         <div className="mb-2">
           <label className="text-gray-500 mb-2 font-bold" htmlFor="username">
-            Product Name
+            Nome do Produto
           </label>
           <input
             type="text"
@@ -86,7 +88,7 @@ const AddNewProduct = () => {
 
         <div className="mb-2">
           <label className="text-gray-500 mb-2 font-bold" htmlFor="password">
-            Product Price
+            Preço do Produto
           </label>
           <input
             type="number"
@@ -101,7 +103,7 @@ const AddNewProduct = () => {
 
         <div className="mb-2">
           <label className="text-gray-500 mb-2 font-bold" htmlFor="password">
-            Product Image (Link)
+            Imagem do Produto (Link)
           </label>
           <textarea
             name="image"
@@ -113,7 +115,7 @@ const AddNewProduct = () => {
 
         <div className="mb-2">
           <label className="text-gray-500 mb-2 font-bold" htmlFor="password">
-            Product Description
+            Descrição do Produto
           </label>
           <textarea
             name="description"
@@ -125,7 +127,7 @@ const AddNewProduct = () => {
 
         <div className="flex justify-between items-center my-3 mb-5">
           <button className="text-white font-bold bg-blue-500 py-2 px-3 border rounder hover:bg-blue-700">
-            Add New Product
+            Adicionar novo Produto
           </button>
         </div>
       </form>

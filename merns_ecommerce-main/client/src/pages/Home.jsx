@@ -4,13 +4,16 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../GlobalContext/GlobalContext";
 import { useContext } from "react";
+import '../pages/home_style.css'
+
+
 
 const Home = () => {
   const [products, setProducts] = useState([]);
   const { cart, addToCart, updateCart } = useContext(GlobalContext);
   useEffect(() => {
     axios({
-      url: "http://localhost:5000/api/items/all_items",
+      url: "http://localhost:5000/produto",
       method: "get",
     })
       .then((res) => {
@@ -54,21 +57,21 @@ const Home = () => {
 
   return (
     <div className="w-full">
-      <div className="">
+      {/* <div className="">
         <img src={img1} className="h-[350px] w-full" />
-      </div>
-
-      <div className="w-full flex justify-center mt-5 mb-4">
+      </div> */}
+     <h1 id="product_font_home">Produtos</h1>
+      <div className="w-full flex justify-center mt-5 mb-4" id="cards">
         <div className="grid gap-4 grid-cols-3 w-[80%]">
           {products.map((product) => {
             return (
-              <div className="shadow" key={product._id}>
-                <img src={product.image} className="h-[250px] w-full " />
+              <div className="shadow" key={product._id} id="card">
+                <img src={product.url_img} className="h-[250px] w-full " />
 
-                <div className="w-[95%] flex justify-between   my-3">
+                <div className="w-[95%] flex justify-between my-3 ">
                   <div className="mx-2">
-                    <h3>{product.name}</h3>
-                    <h4>${product.price}</h4>
+                    <h2>{product.nome}</h2>
+                    <h3>Por : R${product.preco}</h3>
                     <input
                       type="hidden"
                       value={product.name}
@@ -81,21 +84,22 @@ const Home = () => {
                     />
                     <input
                       type="hidden"
-                      value={product.image}
+                      value={product.url_img}
                       id={`hiddenimage${product._id}`}
                     />
+
                   </div>
                   <div>
                     <button
                       id={product._id}
                       onClick={addToCartHandler}
-                      className=" block py-2 px-5 bg-orange-400 text-white rounded hover:bg-transparent hover:text-orange-400"
+                      className=" block py-2 px-5 bg-orange-400 text-white rounded"
                     >
-                      Add To Cart
+                      Comprar
                     </button>
                     <Link to={`productdetails/${product._id}`}>
-                      <button className="py-2 px-5 my-2  hover:text-blue-400 rounded bg-transparent text-orange-400">
-                        details
+                      <button className="py-2 px-5 my-2">
+                        Detalhes
                       </button>
                     </Link>
                   </div>
