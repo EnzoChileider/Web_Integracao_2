@@ -16,7 +16,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     axios({
-      url: `http://localhost:5000/items/get_item/${productid}`,
+      url: `http://localhost:5000/produto/detalhes/${productid}`,
       method: "get",
     })
       .then((res) => {
@@ -30,9 +30,9 @@ const ProductDetails = () => {
   const addToCartHandler = () => {
     const newItem = {
       id: product._id,
-      name: product.name,
-      price: +product.price,
-      image: product.image,
+      name: product.nome,
+      price: +product.preco,
+      image: product.url_img,
       quantity: 1,
     };
 
@@ -55,13 +55,13 @@ const ProductDetails = () => {
     <div className="main_card">
       <div className="w-[80%] mt-[90px] grid gap-4 grid-cols-2">
         <div>
-          <img src={product.image} className="w-full" />
+          <img src={product.url_img} className="w-full" />
         </div>
         <div className="grid gap-4">
           <div>
-            <h2 className="hover:text-orange-400">[ {product.name} ]</h2>
-            <h3 className="my-2">${product.price}</h3>
-            <p className="hover:text-orange-400">{product.description}</p>
+            <h2 className="hover:text-orange-400">[ {product.nome} ]</h2>
+            <h3 className="my-2">${product.preco}</h3>
+            <p className="hover:text-orange-400">{product.descricao}</p>
           </div>
 
           <div>

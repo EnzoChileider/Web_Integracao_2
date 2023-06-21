@@ -17,6 +17,8 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import AddNewProduct from "./pages/AddNewProduct";
 import ProductDetails from "./pages/ProductDetails";
+import Registrar from "./pages/Registrar";
+import Login2 from "./pages/Login2";
 
 function App() {
   //console.log(Cookie.get("jwt_token"));
@@ -66,9 +68,11 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="addnewproduct" element={<AddNewProduct />} />
-        <Route path="productdetails/:productid" element={<ProductDetails />} />
+        <Route path="produto/detalhes/:productid" element={<ProductDetails />} />
         <Route path="sobre" element={<Sobre />} />
         <Route path="politica" element={<Politica />} />
+        <Route path="registrar" element={<Registrar />} />
+        <Route path="login2" element={<Login2 />} />
       </Routes>
       <Footer />
     </div>

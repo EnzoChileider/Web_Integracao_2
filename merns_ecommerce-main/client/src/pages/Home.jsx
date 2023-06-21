@@ -97,7 +97,7 @@ const Home = () => {
                     >
                       Comprar
                     </button>
-                    <Link to={`productdetails/${product._id}`}>
+                    <Link to={`produto/detalhes/${product.codigo}`}>
                       <button className="py-2 px-5 my-2">
                         Detalhes
                       </button>

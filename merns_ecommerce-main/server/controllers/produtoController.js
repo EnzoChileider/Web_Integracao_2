@@ -22,11 +22,13 @@ class ProdutoController {
     const categoria = await categoriaModel.findOne({ codigo: produto.categoria });
     produto.categoria = categoria._id;
     
-
+    console.log(req.file.path);
     // Verificar se uma imagem foi enviada
     if (req.file) {
       produto.imagem = req.file.path;
     } 
+    console.log(produto.imagem);
+    produto.url_img = produto.imagem;
     const resultado = await produtoModel.create(produto);
       res.status(201).json(resultado);
     } catch (error) {   
@@ -36,13 +38,8 @@ class ProdutoController {
 
   async listar(req, res) {
     try {
-      const produtos = await produtoModel.find({});
-      const produtosComImagem = produtos.map((produto) => ({
-        ...produto.toObject(),
-        imagem: produto.imagem.toString("base64"),
-      }));
-      
-      res.json(produtosComImagem);
+      const resultado = await produtoModel.find({});
+      res.status(200).json(resultado);
       
     } catch (error) {
       res.status(500).json({ error: 'Erro ao listar os produtos' });
@@ -175,6 +172,8 @@ async listarDetalhes(req, res) {
       comentarios: produto.comentarios,
       mediaNotas
     };
+
+    
 
     res.json(detalhesProduto);
   } catch (error) {

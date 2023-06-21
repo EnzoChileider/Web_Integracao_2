@@ -79,7 +79,7 @@ const Register = () => {
         }
       })
       .catch((err) => {
-        console.log(`Request error: ${err}`);
+        alert(`Request error: ${err}`);
       });
     //we will use axios to connect to the backend
   };
@@ -180,9 +180,11 @@ const Register = () => {
         </div>
 
         <div className="flex flex-col justify-between items-center my-3 mb-5">
+          <link>
           <button className="text-white font-bold bg-blue-500 py-2 px-3 border rounder hover:bg-blue-700">
             Register
           </button>
+          </link>
           {/* <Link to="/login" className="text-blue-500"><p>Already have an account</p></Link> */}
         </div>
       </form>
